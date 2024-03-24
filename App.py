@@ -1,12 +1,17 @@
+# IMPORTANT  to activate the environment imports run 
+#  .\Scripts\activate        
+#  deactivate 
+
 import customtkinter as ctk
 from tkinter import ttk
 from pytube import YouTube as YouTube_PyTube
 import os
 
 
+MillSecond_clear_Delay = 7000 
+
 def Download_Video():
-    MillSecond_clear_Delay = 7000 
-    
+
     url = entry_url.get()
     download_format = format_var.get()
     resolution = Resolution_var.get()
@@ -72,6 +77,21 @@ def on_progress(stream, chunk, bytes_remaining):
     progress_bar.set(float(percentage / 100))
 # on_progress End
 
+def delete_downloads():
+    download_folder = "downloads"  #downloads folder
+    for file_name in os.listdir(download_folder):
+        file_path = os.path.join(download_folder, file_name)
+        try:
+            if os.path.isfile(file_path):
+                os.unlink(file_path)
+        except Exception as e:
+            print(f"Failed to delete {file_path}. Reason: {e}")   
+    
+    status_label.configure(text="All Downloadeds Deleted Successfully", text_color="white", fg_color="red")
+    root.after(MillSecond_clear_Delay, clear_status_label)  # Clear status label 
+            
+# end delete_downloads
+
 # create root window
 root = ctk.CTk()
 
@@ -100,7 +120,7 @@ download_button = ctk.CTkButton(content_frame, text="Download", command=Download
 download_button.pack(pady="10p 5p")
 
 # Create Resolution Box
-Resolutions = ["720p","360p","240p"]
+Resolutions = ["1080p","720p","360p","240p"]
 Resolution_var = ctk.StringVar()
 Resolution_Combobox = ttk.Combobox(content_frame, values=Resolutions, textvariable=Resolution_var)
 Resolution_Combobox.pack(pady="10p 5p")
@@ -128,6 +148,11 @@ format_radio_mp4.pack(pady="5p")
 
 # Default format selection
 format_var.set("MP4")
+
+# Create red button at bottom left to delete all files in the downloads folder
+delete_button = ctk.CTkRadioButton(content_frame, text="Delete All Files", bg_color="red", command=delete_downloads)
+delete_button.pack(side="bottom", anchor="se", pady=5, padx=5)
+
 
 # Starts the app
 root.mainloop()

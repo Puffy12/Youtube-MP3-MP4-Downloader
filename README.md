@@ -1,6 +1,21 @@
 # Youtube-MP3-MP4-Downloader
 
-Video downloader application with a modern graphical user interface (GUI) using Python.
+YouTube Downloader is a Python application that allows users to download YouTube videos or extract audio from videos quickly and easily. It provides a simple graphical user interface (GUI) built using the Tkinter library for Python.
+
+## Features
+
+    - Download Videos: Download YouTube videos directly to your local machine.
+    - Extract Audio: Convert YouTube videos to MP3 format and save them as audio files.
+    - Customizable Resolution: Choose from different resolutions (1080p, 720p, 360p, 240p) for video downloads.
+    - Download Progress: Monitor the download progress with a progress bar and percentage display.
+    - Error Handling: Provides error messages for invalid URLs or failed downloads.
+    - File Management: Option to delete all downloaded files with a single click.
+
+## Run 
+
+    ```
+    python3 App.py
+    ```
 
 ## Prerequisites
 
@@ -73,6 +88,3 @@ To activate the environment imports, run the following commands:
     deactivate
     ```
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

@@ -12,6 +12,7 @@ YouTube Downloader is a Python application that allows users to download YouTube
   
 ## Run 
 
+    -This will Run the application with the GUI
     ```
     python3 App.py
     ```
@@ -49,7 +50,8 @@ YouTube Downloader is a Python application that allows users to download YouTube
         source venv/bin/activate
         ```
 
-4. **Run the script:**
+
+4. **Using API:**
 
     - To download a video:
     

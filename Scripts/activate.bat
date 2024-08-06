@@ -32,3 +32,6 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" %_OLD_CODEPAGE% > nul
     set _OLD_CODEPAGE=
 )
+
+$env:TCL_LIBRARYt="C:\Users\Mike\AppData\Local\Programs\Python\Python312\tcl\tk8.6"
+$env:TK_LIBRARY="C:\Users\Mike\AppData\Local\Programs\Python\Python312\tcl\tk8.6"

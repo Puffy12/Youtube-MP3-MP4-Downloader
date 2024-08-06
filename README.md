@@ -10,7 +10,6 @@ YouTube Downloader is a Python application that allows users to download YouTube
   - **Download Progress**: Monitor the download progress with a progress bar and percentage display.
   - **Error Handling**: Provides error messages for invalid URLs or failed downloads.
   - **File Management**: Option to delete all downloaded files with a single click.
-
 ## Run 
 
     -This will Run the application with the GUI

@@ -7,7 +7,8 @@
 
 import sys
 import os
-from pytube import YouTube as YouTube_PyTube
+from pytubefix import YouTube
+from pytubefix.cli import on_progress
 
 def download_youtube_video(link, format_type, quality="720p"):
     url = link
@@ -16,7 +17,7 @@ def download_youtube_video(link, format_type, quality="720p"):
 
     try:
         if download_format == "MP3":
-            video = YouTube_PyTube(url, on_progress_callback=on_progress)
+            video = YouTube(url, on_progress_callback=on_progress)
             title = video.title
             print("Downloading MP3...")
             
@@ -32,7 +33,7 @@ def download_youtube_video(link, format_type, quality="720p"):
              
         elif download_format == "MP4":
             print(f"Downloading MP4 in {quality}...")
-            video = YouTube_PyTube(url, on_progress_callback=on_progress)
+            video = YouTube(url, on_progress_callback=on_progress)
             title = video.title
     
             # Download video to path

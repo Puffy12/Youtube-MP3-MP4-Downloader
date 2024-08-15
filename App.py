@@ -4,7 +4,8 @@
 
 import customtkinter as ctk
 from tkinter import ttk
-from pytube import YouTube as YouTube_PyTube
+from pytubefix import YouTube
+from pytubefix.cli import on_progress
 import os
 
 
@@ -23,7 +24,7 @@ def Download_Video():
     try:
         
         if download_format == "MP3":
-            video = YouTube_PyTube(url, on_progress_callback=on_progress)
+            video = YouTube(url, on_progress_callback=on_progress)
             title = video.title
             
             # Download audio 
@@ -40,7 +41,7 @@ def Download_Video():
             
         else:
             
-            video = YouTube_PyTube(url, on_progress_callback=on_progress)
+            video = YouTube(url, on_progress_callback=on_progress)
             title = video.title
             
             # Download video to path
